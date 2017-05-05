@@ -8,6 +8,9 @@ winston.add(WinstonCloudWatch, {
     awsRegion: 'us-east-1'
 });
 
-winston.error('ERROR!');
-winston.log('LALAL');
-winston.info('HELLO!');
+winston.error('ERROR!!!');
+winston.warn('WARNING!');
+winston.info('INFO.');
+winston.verbose('VERBOSE...');
+winston.debug('DEBUG......');
+winston.silly('SILLY...........');
