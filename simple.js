@@ -4,7 +4,8 @@ const winston = require('winston'),
 
 winston.add(WinstonCloudWatch, {
     logGroupName: 'testing',
-    logStreamName: 'first'
+    logStreamName: 'first',
+    awsRegion: 'us-east-1'
 });
 
 winston.error('ERROR!');
