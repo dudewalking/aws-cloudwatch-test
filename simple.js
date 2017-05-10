@@ -38,7 +38,7 @@ const logger2 = winston.loggers.get('category2');
 
 logger1.error('ERROR IN 1!!!');
 logger1.warn('WARNING IN 1!');
-logger1.info('INFO IN 1.');
+logger1.info('INFO IN 1.', {meta: 'This is metadata'});
 
 logger2.error('ERROR IN 2!!!');
 logger2.warn('WARNING IN 2!');
