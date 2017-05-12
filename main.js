@@ -6,7 +6,9 @@ Logger.logMessage('Info 2');
 Logger.logErrorMessage('Error 1');
 Logger.logErrorMessage('Error 2');
 
-Logger.logDebugMessage('Debugging....');
 Logger.logWarnMessage('Warning!');
+
+Logger.logDebugMessage('Debugging....');
+Logger.logSillyMessage('Silly....');
 
 throw new Error('error');

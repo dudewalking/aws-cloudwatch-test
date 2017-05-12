@@ -25,5 +25,10 @@ module.exports = class Logger {
         debugLogger.debug(message);
     }
 
+    static logSillyMessage(message) {
+        message = new Date().toISOString().concat(' ', message);
+        debugLogger.silly(message);
+    }
+
 
 };
