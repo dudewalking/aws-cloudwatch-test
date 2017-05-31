@@ -7,27 +7,27 @@ const ip = require('os').hostname();
 module.exports = class Logger {
 
     static logMessage(message) {
-        message = new Date().toUTCString().concat(`${ip} : ` + message);
+        message = `${ip} : ` + message;
         infoLogger.info(message);
     }
 
     static logErrorMessage(message) {
-        message = new Date().toUTCString().concat(`${ip} : `, message);
+        message =`${ip} : ` + message;
         errorLogger.error(message);
     }
 
     static logWarnMessage(message) {
-        message = new Date().toUTCString().concat(`${ip} : `, message);
+        message = `${ip} : `+ message;
         infoLogger.warn(message);
     }
 
     static logDebugMessage(message) {
-        message = new Date().toUTCString().concat(`${ip} : `, message);
+        message = new Date().toISOString().concat(` ${ip} : `, message);
         debugLogger.debug(message);
     }
 
     static logSillyMessage(message) {
-        message = new Date().toUTCString().concat(`${ip} : `, message);
+        message = new Date().toISOString().concat(` ${ip} : `, message);
         debugLogger.silly(message);
     }
 

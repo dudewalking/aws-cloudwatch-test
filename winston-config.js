@@ -12,6 +12,7 @@ winston.loggers.add('debugLevel', {
         new (winston.transports.Console)({
             level: 'debug',
             colorize: true,
+            json: false,
         }),
     ]
 });
@@ -21,13 +22,14 @@ winston.loggers.add('infoLevel', {
         new (winston.transports.File)({
             name: 'file',
             filename: LOG_FILENAME,
-            level: 'info'
+            level: 'info',
+            json: false,
         }),
         new (winston.transports.CloudWatch1)({
             logGroupName: 'Group1',
             logStreamName: 'Info - Stream',
             awsRegion: 'us-east-1',
-        }),
+        })
     ],
 });
 
@@ -36,7 +38,8 @@ winston.loggers.add('errorLevel', {
         new (winston.transports.File)({
             name: 'error-file',
             filename: ERROR_LOG_FILENAME,
-            level: 'error'
+            level: 'error',
+            json: false,
         }),
         new (winston.transports.CloudWatch1)({
             logGroupName: 'Group1',
@@ -47,11 +50,18 @@ winston.loggers.add('errorLevel', {
 });
 
 winston.exitOnError = false;
-winston.handleExceptions(new winston.transports.File({filename: EXCEPTION_LOG_FILENAME}));
+winston.handleExceptions(
+    new winston.transports.File({
+        filename: EXCEPTION_LOG_FILENAME,
+        json: false,
+    })
+);
 
 const DebugLogger = winston.loggers.get('debugLevel');
 const InfoLogger = winston.loggers.get('infoLevel');
 const ErrorLogger = winston.loggers.get('errorLevel');
+
+console.log(InfoLogger);
 
 module.exports = {
     DebugLogger,
